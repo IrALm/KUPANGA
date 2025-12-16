@@ -44,9 +44,7 @@ graph TB
     
     subgraph "Couche Données"
         DB1[(🗄️ PostgreSQL + PostGIS<br/>Données Relationnelles<br/>Géolocalisation<br/>Transactions ACID)]
-        
-        DB2[(🍃 MongoDB<br/>Points d'Intérêt<br/>Données NoSQL<br/>GeoJSON)]
-        
+                
         FS[(📦 Stockage Fichiers - MinIO<br/>Photos Biens<br/>Documents PDF<br/>Photos États des Lieux)]
     end
     
@@ -75,7 +73,6 @@ graph TB
     NOTIF --> DB1
     
     RECH --> DB1
-    RECH --> DB2
     
     CM --> FS
     ED --> FS
@@ -92,7 +89,6 @@ graph TB
     style NOTIF fill:#fce4ec
     style SEC fill:#ffebee
     style DB1 fill:#e8f5e9
-    style DB2 fill:#e1f5ff
     style FS fill:#fff3e0
 ```
 
@@ -184,7 +180,6 @@ graph TB
     style E1 fill:#e0f2f1
     style E2 fill:#e0f2f1
     style E3 fill:#e0f2f1
-    style M1 fill:#fff9c4
     style M2 fill:#fff9c4
     style M3 fill:#fff9c4
     style R1 fill:#f1f8e9
@@ -211,10 +206,6 @@ graph TB
         T8[(🔔 Notifications)]
     end
     
-    subgraph "MongoDB"
-        M1[(📍 Points d'Intérêt<br/>GeoJSON)]
-    end
-    
     subgraph "MinIO Object Storage"
         F1[📷 Photos Biens]
         F2[📄 Documents PDF]
@@ -229,7 +220,6 @@ graph TB
     style T6 fill:#fff9c4
     style T7 fill:#e8f5e9
     style T8 fill:#fce4ec
-    style M1 fill:#e1f5ff
     style F1 fill:#fff3e0
     style F2 fill:#fff3e0
     style F3 fill:#fff3e0
@@ -523,7 +513,6 @@ Nginx (Reverse Proxy)
 | **API REST** | Spring Boot | Endpoints RESTful, validation |
 | **Authentification** | Spring Security + JWT | Sécurité, gestion sessions |
 | **Base relationnelle** | PostgreSQL + PostGIS | Données métier + géolocalisation |
-| **Base NoSQL** | MongoDB | Points d'intérêt (GeoJSON) |
 | **Stockage fichiers** | MinIO | Photos, documents PDF |
 | **Notifications** | Spring Events | Alertes temps réel |
 
